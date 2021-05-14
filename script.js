@@ -20,15 +20,18 @@ function operate(func, num1, num2) {
 
 const display = document.getElementById("display");
 
-function updateDisplay(content) {
-  let addContent = document.createTextNode(content.toString());
+function updateDisplay(input) {
+  if (input === "0") {
+    content = "";
+  }
+  let addContent = document.createTextNode(input.toString());
   display.textContent = "";
   display.appendChild(addContent);
 }
 
-updateDisplay("0");
+let content = "";
 
-let content = ""
+updateDisplay("0");
 
 const displayEntryKeys = document.querySelectorAll(".display-entry");
 
@@ -45,7 +48,6 @@ displayEntryKeys.forEach(key => {
 const acKey = document.querySelector("#ac");
 
 acKey.addEventListener("click", () => {
-  content = ""
   updateDisplay("0");
 })
 
@@ -67,9 +69,14 @@ const operators = document.querySelectorAll(".operator")
 
 let currentOperator = ""
 
+let num1 = 0
+let num2 = 0
+
 operators.forEach(operator => {
   operator.addEventListener("click", () => {
     currentOperator = operator.getAttribute("id");
+    num1 = parseFloat(content);
+    updateDisplay()
   })
 })
 
