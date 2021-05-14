@@ -45,5 +45,20 @@ function updateDisplay(content) {
 const acKey = document.querySelector("#ac");
 
 acKey.addEventListener("click", () => {
+  content = ""
   updateDisplay("0");
+})
+
+const plusminus = document.querySelector("#plusminus");
+
+plusminus.addEventListener("click", () => {
+  if (content === "" || content === "0") {
+    return
+  }
+  if (content.startsWith("-")) {
+    content = content.replace("-", "")
+  } else {
+    content = ("-").concat(content);
+  }
+  updateDisplay(content);
 })
