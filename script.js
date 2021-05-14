@@ -22,22 +22,22 @@ const displayContent = document.getElementById("display-content");
 
 updateDisplay("0");
 
-let newDisplay = ""
+let content = ""
 
-const DisplayEntryKeys = document.querySelectorAll(".display-entry");
+const displayEntryKeys = document.querySelectorAll(".display-entry");
 
-DisplayEntryKeys.forEach(key => {
+displayEntryKeys.forEach(key => {
   key.addEventListener("click", () => {
     let addContent = (key.getAttribute("id"));
-    if (newDisplay.length >= 20) {return};
-    if (newDisplay.includes(".") && addContent === ".") {return};
-    newDisplay = newDisplay.concat(addContent);
-    updateDisplay(newDisplay);
+    if (content.length >= 20) {return};
+    if (content.includes(".") && addContent === ".") {return};
+    content = content.concat(addContent);
+    updateDisplay(content);
   })  
 })
 
-function updateDisplay(newDisplay) {
-  let addContent = document.createTextNode(newDisplay.toString());
+function updateDisplay(content) {
+  let addContent = document.createTextNode(content.toString());
   displayContent.textContent = "";
   displayContent.appendChild(addContent);
 }
