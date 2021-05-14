@@ -55,6 +55,8 @@ displayEntryKeys.forEach(key => {
 const acKey = document.querySelector("#ac");
 
 acKey.addEventListener("click", () => {
+  num1 = 0;
+  num2 = 0;
   currentOperator = "";
   pleaseResetDisplay = false;
   updateDisplay("0");
@@ -87,5 +89,11 @@ operators.forEach(operator => {
   })
 })
 
+const equals = document.querySelector("#equals");
 
-//equals
+equals.addEventListener("click", () => {
+  if (currentOperator === "") {return};
+  num2 = parseFloat(content);
+  let result = window[currentOperator](num1, num2);
+  updateDisplay(result);
+})
