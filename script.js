@@ -18,9 +18,23 @@ function operate(func, num1, num2) {
   return func(num1, num2);
 }
 
-let display = document.getElementById("display");
+const displayContent = document.getElementById("display-content");
 
-let displayContent = document.createTextNode(0);
+const startValue = document.createTextNode("0");
 
-display.appendChild(displayContent);
+displayContent.appendChild(startValue);
+
+let updatedDisplay = "";
+
+const DisplayEntryKeys = document.querySelectorAll(".display-entry");
+
+DisplayEntryKeys.forEach(key => {
+  key.addEventListener("click", () => {
+    let addContent = (key.getAttribute("id"));
+    updatedDisplay = updatedDisplay.concat(addContent);
+    updateDisplay = document.createTextNode(updatedDisplay);
+    displayContent.textContent = "";
+    displayContent.appendChild(updateDisplay);
+  })  
+})
 
