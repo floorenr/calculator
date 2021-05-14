@@ -20,11 +20,9 @@ function operate(func, num1, num2) {
 
 const displayContent = document.getElementById("display-content");
 
-const startValue = document.createTextNode("0");
+updateDisplay("0");
 
-displayContent.appendChild(startValue);
-
-let newDisplay = "";
+let newDisplay = ""
 
 const DisplayEntryKeys = document.querySelectorAll(".display-entry");
 
@@ -39,7 +37,7 @@ DisplayEntryKeys.forEach(key => {
 })
 
 function updateDisplay(newDisplay) {
-  let addContent = document.createTextNode(newDisplay);
+  let addContent = document.createTextNode(newDisplay.toString());
   displayContent.textContent = "";
   displayContent.appendChild(addContent);
 }
