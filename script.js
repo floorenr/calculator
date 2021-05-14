@@ -87,8 +87,12 @@ let num2 = 0
 operators.forEach(operator => {
   operator.addEventListener("click", () => {
     currentOperator = operator.getAttribute("id");
-    num1 = parseFloat(content);
-    pleaseResetDisplay = true;
+    if (content === "") {
+      num1 = 0;
+    } else {
+      num1 = parseFloat(content)
+    };
+      pleaseResetDisplay = true;
   })
 })
 
@@ -100,7 +104,11 @@ equals.addEventListener("click", () => {
 })
   
 function evaluate() {
-  num2 = parseFloat(content);
+  if (content === "") {
+    num2 = 0;
+  } else {
+    num2 = parseFloat(content)
+  };
   content = (window[currentOperator](num1, num2)).toString();
   updateDisplay(content);
   evaluated = true;
