@@ -24,17 +24,20 @@ const startValue = document.createTextNode("0");
 
 displayContent.appendChild(startValue);
 
-let updatedDisplay = "";
+let newDisplay = "";
 
 const DisplayEntryKeys = document.querySelectorAll(".display-entry");
 
 DisplayEntryKeys.forEach(key => {
   key.addEventListener("click", () => {
     let addContent = (key.getAttribute("id"));
-    updatedDisplay = updatedDisplay.concat(addContent);
-    updateDisplay = document.createTextNode(updatedDisplay);
-    displayContent.textContent = "";
-    displayContent.appendChild(updateDisplay);
+    newDisplay = newDisplay.concat(addContent);
+    updateDisplay(newDisplay);
   })  
 })
 
+function updateDisplay(newDisplay) {
+  let addContent = document.createTextNode(newDisplay);
+  displayContent.textContent = "";
+  displayContent.appendChild(addContent);
+}
