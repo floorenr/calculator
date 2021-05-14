@@ -100,7 +100,7 @@ equals.addEventListener("click", () => {
   
 function evaluate() {
   num2 = parseFloat(content);
-  let result = window[currentOperator](num1, num2);
-  updateDisplay(result);
+  content = (window[currentOperator](num1, num2)).toString();
+  updateDisplay(content);
   evaluated = true;
 }
