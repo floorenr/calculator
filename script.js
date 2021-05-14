@@ -20,8 +20,11 @@ function operate(func, num1, num2) {
 
 const display = document.getElementById("display");
 
+let pleaseResetDisplay = false
+
 function updateDisplay(input) {
   if (input === "0") {
+    pleaseResetDisplay = false;
     evaluated = false;
     content = "";
   }
@@ -29,7 +32,6 @@ function updateDisplay(input) {
   display.textContent = "";
   display.appendChild(addContent);
 }
-let pleaseResetDisplay = false
 
 let evaluated = false
 
@@ -45,7 +47,6 @@ displayEntryKeys.forEach(key => {
   key.addEventListener("click", () => {
     let addContent = (key.getAttribute("id"));
     if (pleaseResetDisplay === true) {
-      pleaseResetDisplay = false;
       updateDisplay("0");
     };
     if (content.length >= 20) {return};
@@ -61,7 +62,6 @@ acKey.addEventListener("click", () => {
   num1 = 0;
   num2 = 0;
   currentOperator = "";
-  pleaseResetDisplay = false;
   updateDisplay("0");
 })
 
