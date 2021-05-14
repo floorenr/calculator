@@ -1,8 +1,8 @@
-function add (a, b) {
+function plus (a, b) {
   return (a + b);
 }
 
-function subtract (a, b) {
+function minus (a, b) {
 return (a - b);
 }
 
@@ -63,7 +63,15 @@ plusminus.addEventListener("click", () => {
   updateDisplay(content);
 })
 
-//operator
+const operators = document.querySelectorAll(".operator")
+
+let currentOperator = ""
+
+operators.forEach(operator => {
+  operator.addEventListener("click", () => {
+    currentOperator = operator.getAttribute("id");
+  })
+})
 
 
 //equals
