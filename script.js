@@ -28,8 +28,11 @@ function updateDisplay(input) {
   display.textContent = "";
   display.appendChild(addContent);
 }
+let pleaseResetDisplay = false
 
 let content = "";
+
+let currentOperator = ""
 
 updateDisplay("0");
 
@@ -38,6 +41,10 @@ const displayEntryKeys = document.querySelectorAll(".display-entry");
 displayEntryKeys.forEach(key => {
   key.addEventListener("click", () => {
     let addContent = (key.getAttribute("id"));
+    if (pleaseResetDisplay === true) {
+      pleaseResetDisplay = false;
+      updateDisplay("0");
+    };
     if (content.length >= 20) {return};
     if (content.includes(".") && addContent === ".") {return};
     content = content.concat(addContent);
@@ -48,6 +55,7 @@ displayEntryKeys.forEach(key => {
 const acKey = document.querySelector("#ac");
 
 acKey.addEventListener("click", () => {
+  pleaseResetDisplay = false;
   updateDisplay("0");
 })
 
@@ -67,8 +75,6 @@ plusminus.addEventListener("click", () => {
 
 const operators = document.querySelectorAll(".operator")
 
-let currentOperator = ""
-
 let num1 = 0
 let num2 = 0
 
@@ -76,7 +82,7 @@ operators.forEach(operator => {
   operator.addEventListener("click", () => {
     currentOperator = operator.getAttribute("id");
     num1 = parseFloat(content);
-    updateDisplay()
+    pleaseResetDisplay = true;
   })
 })
 
