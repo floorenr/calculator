@@ -46,7 +46,7 @@ const displayEntryKeys = document.querySelectorAll(".display-entry");
 displayEntryKeys.forEach(key => {
   key.addEventListener("click", () => {
     let addContent = (key.getAttribute("id"));
-    if (pleaseResetDisplay === true) {
+    if (pleaseResetDisplay === true || evaluated === true) {
       updateDisplay("0");
     };
     if (content.length >= 20) {return};
