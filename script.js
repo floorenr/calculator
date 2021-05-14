@@ -55,6 +55,7 @@ displayEntryKeys.forEach(key => {
 const acKey = document.querySelector("#ac");
 
 acKey.addEventListener("click", () => {
+  currentOperator = "";
   pleaseResetDisplay = false;
   updateDisplay("0");
 })
