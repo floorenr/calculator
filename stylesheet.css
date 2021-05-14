@@ -14,7 +14,7 @@ body {
   width: 400px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 0.7fr repeat(4, 1fr);
+  grid-template-rows: 0.7fr repeat(5, 1fr);
 }
 
 #display {
@@ -32,4 +32,12 @@ body {
 button {
   font-size: 20px;
   font-weight: bold;
+}
+
+#plus {
+  grid-area: 5 / 4 / 7 /5;
+}
+
+#equals {
+  grid-area: 6 / 2 / 7 / 4;
 }
