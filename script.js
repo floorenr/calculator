@@ -30,6 +30,8 @@ function updateDisplay(input) {
 }
 let pleaseResetDisplay = false
 
+let evaluated = false
+
 let content = "";
 
 let currentOperator = ""
@@ -93,7 +95,12 @@ const equals = document.querySelector("#equals");
 
 equals.addEventListener("click", () => {
   if (currentOperator === "") {return};
+  evaluate();
+})
+  
+function evaluate() {
   num2 = parseFloat(content);
   let result = window[currentOperator](num1, num2);
   updateDisplay(result);
-})
+  evaluated = true;
+}
