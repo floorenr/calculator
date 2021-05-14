@@ -18,7 +18,7 @@ function operate(func, num1, num2) {
   return func(num1, num2);
 }
 
-const displayContent = document.getElementById("display-content");
+const display = document.getElementById("display");
 
 updateDisplay("0");
 
@@ -38,7 +38,12 @@ displayEntryKeys.forEach(key => {
 
 function updateDisplay(content) {
   let addContent = document.createTextNode(content.toString());
-  displayContent.textContent = "";
-  displayContent.appendChild(addContent);
+  display.textContent = "";
+  display.appendChild(addContent);
 }
 
+const acKey = document.querySelector("#ac");
+
+acKey.addEventListener("click", () => {
+  updateDisplay("0");
+})
