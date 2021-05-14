@@ -22,6 +22,7 @@ const display = document.getElementById("display");
 
 function updateDisplay(input) {
   if (input === "0") {
+    evaluated = false;
     content = "";
   }
   let addContent = document.createTextNode(input.toString());
@@ -103,4 +104,5 @@ function evaluate() {
   content = (window[currentOperator](num1, num2)).toString();
   updateDisplay(content);
   evaluated = true;
+  currentOperator = "";
 }
