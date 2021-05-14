@@ -31,6 +31,8 @@ const DisplayEntryKeys = document.querySelectorAll(".display-entry");
 DisplayEntryKeys.forEach(key => {
   key.addEventListener("click", () => {
     let addContent = (key.getAttribute("id"));
+    if (newDisplay.length >= 20) {return};
+    if (newDisplay.includes(".") && addContent === ".") {return};
     newDisplay = newDisplay.concat(addContent);
     updateDisplay(newDisplay);
   })  
@@ -41,3 +43,4 @@ function updateDisplay(newDisplay) {
   displayContent.textContent = "";
   displayContent.appendChild(addContent);
 }
+
