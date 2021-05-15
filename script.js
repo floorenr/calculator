@@ -15,7 +15,16 @@ function divide (a, b) {
 }
 
 function operate(func, num1, num2) {
-  return func(num1, num2);
+  switch(func) {
+    case "plus": 
+      return plus(num1, num2);
+    case "minus":
+      return minus(num1, num2);
+    case "multiply":
+      return multiply(num1, num2);
+    case "divide":
+      return divide(num1, num2);
+  }
 }
 
 const display = document.getElementById("display");
@@ -109,7 +118,7 @@ function evaluate() {
   } else {
     num2 = parseFloat(content)
   };
-  content = (window[currentOperator](num1, num2)).toString();
+  content = (operate(currentOperator, num1, num2)).toString();
   updateDisplay(content);
   evaluated = true;
   currentOperator = "";
