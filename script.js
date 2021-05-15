@@ -1,57 +1,20 @@
-function plus (a, b) {
-  return (a + b);
-}
-
-function minus (a, b) {
-return (a - b);
-}
-
-function multiply (a, b) {
-	return (a * b);
-}
-
-function divide (a, b) {
-	return (a / b);
-}
-
-function operate(func, num1, num2) {
-  switch(func) {
-    case "plus": 
-      return plus(num1, num2);
-    case "minus":
-      return minus(num1, num2);
-    case "multiply":
-      return multiply(num1, num2);
-    case "divide":
-      return divide(num1, num2);
-  }
-}
-
 const display = document.getElementById("display");
+const displayEntryKeys = document.querySelectorAll(".display-entry");
+const plusminusKey = document.querySelector("#plusminus");
+const operatorKeys = document.querySelectorAll(".operator");
+const acKey = document.querySelector("#ac");
+const equalsKey = document.querySelector("#equals");
 
-let pleaseResetDisplay = false
-
-function updateDisplay(input) {
-  if (input === "0") {
-    pleaseResetDisplay = false;
-    evaluated = false;
-    content = "";
-  }
-  let addContent = document.createTextNode(input.toString());
-  display.textContent = "";
-  display.appendChild(addContent);
-}
-
-let evaluated = false
-
+let pleaseResetDisplay = false;
+let evaluated = false;
 let content = "";
-
-let currentOperator = ""
+let currentOperator = "";
+let num1 = 0;
+let num2 = 0;
 
 updateDisplay("0");
 
-const displayEntryKeys = document.querySelectorAll(".display-entry");
-
+// eventListeners
 displayEntryKeys.forEach(key => {
   key.addEventListener("click", () => {
     let addContent = (key.getAttribute("id"));
@@ -65,8 +28,6 @@ displayEntryKeys.forEach(key => {
   })  
 })
 
-const acKey = document.querySelector("#ac");
-
 acKey.addEventListener("click", () => {
   num1 = 0;
   num2 = 0;
@@ -74,9 +35,7 @@ acKey.addEventListener("click", () => {
   updateDisplay("0");
 })
 
-const plusminus = document.querySelector("#plusminus");
-
-plusminus.addEventListener("click", () => {
+plusminusKey.addEventListener("click", () => {
   if (content === "" || content === "0") {
     return
   }
@@ -88,12 +47,7 @@ plusminus.addEventListener("click", () => {
   updateDisplay(content);
 })
 
-const operators = document.querySelectorAll(".operator")
-
-let num1 = 0
-let num2 = 0
-
-operators.forEach(operator => {
+operatorKeys.forEach(operator => {
   operator.addEventListener("click", () => {
     if (currentOperator !== "") {
       evaluate();
@@ -109,13 +63,23 @@ operators.forEach(operator => {
   })
 })
 
-const equals = document.querySelector("#equals");
-
-equals.addEventListener("click", () => {
+equalsKey.addEventListener("click", () => {
   if (currentOperator === "") {return};
   evaluate();
 })
-  
+
+//functions
+function updateDisplay(input) {
+  if (input === "0") {
+    pleaseResetDisplay = false;
+    evaluated = false;
+    content = "";
+  }
+  let addContent = document.createTextNode(input.toString());
+  display.textContent = "";
+  display.appendChild(addContent);
+}
+
 function evaluate() {
   if (content === "") {
     num2 = 0;
@@ -126,6 +90,32 @@ function evaluate() {
   updateDisplay(content);
   evaluated = true;
   currentOperator = "";
+}
+
+function operate(func, num1, num2) {
+  switch(func) {
+    case "plus": 
+      return plus(num1, num2);
+    case "minus":
+      return minus(num1, num2);
+    case "multiply":
+      return multiply(num1, num2);
+    case "divide":
+      return divide(num1, num2);
+  }
+}
+
+function plus (a, b) {
+  return (a + b);
+}
+function minus (a, b) {
+return (a - b);
+}
+function multiply (a, b) {
+	return (a * b);
+}
+function divide (a, b) {
+	return (a / b);
 }
 
 // Gotchas: watch out for and fix these bugs if they show up in your code:
