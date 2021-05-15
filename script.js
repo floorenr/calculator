@@ -95,11 +95,15 @@ let num2 = 0
 
 operators.forEach(operator => {
   operator.addEventListener("click", () => {
+    if (currentOperator !== "") {
+      evaluate();
+    }
     currentOperator = operator.getAttribute("id");
     if (content === "") {
       num1 = 0;
     } else {
-      num1 = parseFloat(content)
+      num1 = parseFloat(content);
+      num2 = 0;
     };
       pleaseResetDisplay = true;
   })
