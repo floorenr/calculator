@@ -74,7 +74,7 @@ function updateDisplay(input) {
     displayContent = "";
   }
   let addDisplayContent = document.createTextNode(input.toString());
-  display.textdisplayContent = "";
+  display.textContent = "";
   display.appendChild(addDisplayContent);
 }
 
