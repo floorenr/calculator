@@ -7,7 +7,7 @@ const equalsKey = document.querySelector("#equals");
 
 let pleaseResetDisplay = false;
 let evaluated = false;
-let content = "";
+let displayContent = "";
 let currentOperator = "";
 let num1 = 0;
 let num2 = 0;
@@ -17,14 +17,14 @@ updateDisplay("0");
 // eventListeners
 displayEntryKeys.forEach(key => {
   key.addEventListener("click", () => {
-    let addContent = (key.getAttribute("id"));
+    let addDisplayContent = (key.getAttribute("id"));
     if (pleaseResetDisplay === true || evaluated === true) {
       updateDisplay("0");
     };
-    if (content.length >= 20) {return};
-    if (content.includes(".") && addContent === ".") {return};
-    content = content.concat(addContent);
-    updateDisplay(content);
+    if (displayContent.length >= 20) {return};
+    if (displayContent.includes(".") && addDisplayContent === ".") {return};
+    displayContent = displayContent.concat(addDisplayContent);
+    updateDisplay(displayContent);
   })  
 })
 
@@ -36,15 +36,15 @@ acKey.addEventListener("click", () => {
 })
 
 plusminusKey.addEventListener("click", () => {
-  if (content === "" || content === "0") {
+  if (displayContent === "" || displayContent === "0") {
     return
   }
-  if (content.startsWith("-")) {
-    content = content.replace("-", "")
+  if (displayContent.startsWith("-")) {
+    displayContent = displayContent.replace("-", "")
   } else {
-    content = ("-").concat(content);
+    displayContent = ("-").concat(displayContent);
   }
-  updateDisplay(content);
+  updateDisplay(displayContent);
 })
 
 operatorKeys.forEach(operator => {
@@ -53,10 +53,10 @@ operatorKeys.forEach(operator => {
       evaluate();
     }
     currentOperator = operator.getAttribute("id");
-    if (content === "") {
+    if (displayContent === "") {
       num1 = 0;
     } else {
-      num1 = parseFloat(content);
+      num1 = parseFloat(displayContent);
       num2 = 0;
     };
       pleaseResetDisplay = true;
@@ -73,21 +73,21 @@ function updateDisplay(input) {
   if (input === "0") {
     pleaseResetDisplay = false;
     evaluated = false;
-    content = "";
+    displayContent = "";
   }
-  let addContent = document.createTextNode(input.toString());
-  display.textContent = "";
-  display.appendChild(addContent);
+  let addDisplayContent = document.createTextNode(input.toString());
+  display.textdisplayContent = "";
+  display.appendChild(addDisplayContent);
 }
 
 function evaluate() {
-  if (content === "") {
+  if (displayContent === "") {
     num2 = 0;
   } else {
-    num2 = parseFloat(content)
+    num2 = parseFloat(displayContent)
   };
-  content = (operate(currentOperator, num1, num2)).toString();
-  updateDisplay(content);
+  displayContent = (operate(currentOperator, num1, num2)).toString();
+  updateDisplay(displayContent);
   evaluated = true;
   currentOperator = "";
 }
