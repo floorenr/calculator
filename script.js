@@ -10,6 +10,7 @@ let displayContent = "";
 let currentOperator = "";
 let num1 = 0;
 let num2 = 0;
+let displayKeyPressed = false;
 
 updateDisplay("0");
 
@@ -24,6 +25,7 @@ displayEntryKeys.forEach(key => {
     if (displayContent.includes(".") && addDisplayContent === ".") {return};
     displayContent = displayContent.concat(addDisplayContent);
     updateDisplay(displayContent);
+    displayKeyPressed = true;
   })  
 })
 
@@ -48,7 +50,7 @@ plusminusKey.addEventListener("click", () => {
 
 operatorKeys.forEach(operator => {
   operator.addEventListener("click", () => {
-    if (currentOperator !== "") {
+    if (currentOperator !== "" && displayKeyPressed === true) {
       evaluate();
     }
     currentOperator = operator.getAttribute("id");
@@ -59,6 +61,7 @@ operatorKeys.forEach(operator => {
       num2 = 0;
     };
       pleaseResetDisplay = true;
+      displayKeyPressed = false;
   })
 })
 
