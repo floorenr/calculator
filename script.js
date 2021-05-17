@@ -21,7 +21,7 @@ displayEntryKeys.forEach(key => {
     if (pleaseResetDisplay === true) {
       updateDisplay("0");
     };
-    if (displayContent.length >= 20) {return};
+    if (displayContent.length >= 16) {return};
     if (displayContent.includes(".") && addDisplayContent === ".") {return};
     displayContent = displayContent.concat(addDisplayContent);
     updateDisplay(displayContent);
