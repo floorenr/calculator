@@ -6,7 +6,6 @@ const acKey = document.querySelector("#ac");
 const equalsKey = document.querySelector("#equals");
 
 let pleaseResetDisplay = false;
-let evaluated = false;
 let displayContent = "";
 let currentOperator = "";
 let num1 = 0;
@@ -18,7 +17,7 @@ updateDisplay("0");
 displayEntryKeys.forEach(key => {
   key.addEventListener("click", () => {
     let addDisplayContent = (key.getAttribute("id"));
-    if (pleaseResetDisplay === true || evaluated === true) {
+    if (pleaseResetDisplay === true) {
       updateDisplay("0");
     };
     if (displayContent.length >= 20) {return};
@@ -72,7 +71,6 @@ equalsKey.addEventListener("click", () => {
 function updateDisplay(input) {
   if (input === "0") {
     pleaseResetDisplay = false;
-    evaluated = false;
     displayContent = "";
   }
   let addDisplayContent = document.createTextNode(input.toString());
@@ -88,7 +86,7 @@ function evaluate() {
   };
   displayContent = (operate(currentOperator, num1, num2)).toString();
   updateDisplay(displayContent);
-  evaluated = true;
+  pleaseResetDisplay = true;
   currentOperator = "";
 }
 
