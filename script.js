@@ -15,7 +15,7 @@ let displayKeyPressed = false;
 
 updateDisplay("0");
 
-// eventListeners
+// eventListeners mouse
 displayEntryKeys.forEach(key => {
   key.addEventListener("click", () => {
     let addDisplayContent = (key.getAttribute("id"));
@@ -130,5 +130,3 @@ function multiply (a, b) {
 function divide (a, b) {
 	return (a / b);
 }
-
-// EXTRA CREDIT: Add keyboard support!
