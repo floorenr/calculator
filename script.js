@@ -79,6 +79,9 @@ backspaceKey.addEventListener("click", () => {
 
 //functions
 function updateDisplay(input) {
+  if (input === ""){
+    input = "0";
+  };
   if (input === "0") {
     pleaseResetDisplay = false;
     displayContent = "";
@@ -87,6 +90,8 @@ function updateDisplay(input) {
   display.textContent = "";
   display.appendChild(addDisplayContent);
 }
+// displayContent can be an empty string, contrary to input. Input is used to 
+// createTextNode, which is always at least "0".
 
 function evaluate() {
   if (displayContent === "") {
