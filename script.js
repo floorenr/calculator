@@ -4,6 +4,7 @@ const plusminusKey = document.querySelector("#plusminus");
 const operatorKeys = document.querySelectorAll(".operator");
 const acKey = document.querySelector("#ac");
 const equalsKey = document.querySelector("#equals");
+const backspaceKey = document.querySelector("#backspace");
 
 let pleaseResetDisplay = false;
 let displayContent = "";
@@ -70,6 +71,12 @@ equalsKey.addEventListener("click", () => {
   evaluate();
 })
 
+backspaceKey.addEventListener("click", () => {
+  if (displayContent === ""){return};
+  displayContent = displayContent.slice(0, -1);
+  updateDisplay(displayContent);
+})
+
 //functions
 function updateDisplay(input) {
   if (input === "0") {
@@ -119,6 +126,4 @@ function divide (a, b) {
 	return (a / b);
 }
 
-// EXTRA CREDIT: Add a “backspace” button, so the user can undo if they click the 
-//    wrong number.
 // EXTRA CREDIT: Add keyboard support!

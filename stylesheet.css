@@ -42,10 +42,6 @@ button {
   border-color: black;
 }
 
-/* #plus {
-  grid-area: 5 / 4 / 7 /5;
-} */
-
 #equals {
   grid-area: 6 / 3 / 7 / 5;
 }
