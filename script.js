@@ -119,7 +119,6 @@ function divide (a, b) {
 	return (a / b);
 }
 
-// Gotchas: watch out for and fix these bugs if they show up in your code:
 // EXTRA CREDIT: Add a “backspace” button, so the user can undo if they click the 
 //    wrong number.
 // EXTRA CREDIT: Add keyboard support!

@@ -42,15 +42,20 @@ button {
   border-color: black;
 }
 
-#plus {
+/* #plus {
   grid-area: 5 / 4 / 7 /5;
-}
+} */
 
 #equals {
-  grid-area: 6 / 2 / 7 / 4;
+  grid-area: 6 / 3 / 7 / 5;
 }
 
 #ac {
+  color:rgb(212, 35, 35);
+  background-color:rgb(202, 218, 235);
+}
+
+#backspace {
   color:rgb(212, 35, 35);
   background-color:rgb(202, 218, 235);
 }
@@ -66,3 +71,4 @@ button {
 #plusminus {
   background-color: rgb(240, 235, 218);
 }
+
