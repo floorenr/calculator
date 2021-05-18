@@ -34,6 +34,10 @@ button {
   font-family: inherit;
   font-size: 20px;
   font-weight: 800;
+  background-color:mintcream;
+  border: 0.5px;
+  border-style: solid;
+  border-color: black;
 }
 
 #plus {
@@ -42,4 +46,21 @@ button {
 
 #equals {
   grid-area: 6 / 2 / 7 / 4;
+}
+
+#ac {
+  color:rgb(212, 35, 35);
+  background-color:rgb(202, 218, 235);
+}
+
+.operator {
+  background-color: rgb(194, 215, 216);
+}
+
+#equals {
+  background-color: rgb(236, 186, 150);
+}
+
+#plusminus {
+  background-color: rgb(240, 235, 218);
 }
